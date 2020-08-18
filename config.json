@@ -1,0 +1,54 @@
+{
+	"name": "Fast_Records_Table",
+	"namespace": "Vanderbilt\\Fast_Records_Table",
+	"framework-version": 5,
+	"description": "REDCap external module that allows users to quickly find specific records in a project.",
+	"documentation": "README.md",
+	"authors": [
+		{
+			"name": "Carl Reed",
+			"email": "datacore@vumc.org",
+			"institution": "Vanderbilt University Medical Center"
+		}
+	],
+	"versions": {
+		"1.0.0": "Initial release."
+	},
+	"permissions": [],
+	"enable-every-page-hooks-on-system-pages": false,
+	"links": {
+		"project": [
+			{
+				"name": "Fast Records Table",
+				"icon": "arrow_right",
+				"url": "table.php"
+			}
+		],
+		"control-center": []
+	},
+	"no-auth-pages": [],
+	"project-settings": [
+		{
+			"key": "data-columns",
+			"name": "Data Column",
+			"required": false,
+			"type": "field-list",
+			"repeatable": true
+		},
+		{
+			"key": "form-columns",
+			"name": "Form Column",
+			"required": false,
+			"type": "form-list",
+			"repeatable": true
+		}
+	],
+	"system-settings": [],
+	"crons": [],
+	"compatibility": {
+		"php-version-min": "7.0.0",
+		"php-version-max": "7.3.1",
+		"redcap-version-min": "8.0.0",
+		"redcap-version-max": "10.2.1"
+	}
+}
