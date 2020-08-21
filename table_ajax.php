@@ -11,7 +11,9 @@ foreach($cols->form_columns as $display => $form) {
 	$form_links[$form] = $link_base . "DataEntry/index.php?pid=$pid&page=$form&id=";
 }
 
-$data = \REDCap::getData($pid, 'array');
+$field_array = $module->getFieldArray();
+$module->llog('field array: ' . print_r($field_array, true));
+$data = \REDCap::getData($pid, 'array', null, $field_array);
 
 $json = new \stdClass();
 $table_data = [];

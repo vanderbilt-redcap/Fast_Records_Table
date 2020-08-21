@@ -24,6 +24,9 @@ class Fast_Records_Table extends \ExternalModules\AbstractExternalModule {
 			array_unshift($datacols, $rid_field);
 		}
 		
+		if (count($datacols) == 1 and empty($datacols[0]))
+			$datacols = null;
+		
 		foreach($datacols as $i => $field) {
 			$label = $project->metadata[$field]['element_label'];
 			$cols->data_columns[$label] = $field;
@@ -49,16 +52,29 @@ class Fast_Records_Table extends \ExternalModules\AbstractExternalModule {
 		return $cols;
 	}
 	
-	// function nlog() {
-		// if (file_exists("C:/vumc/log.txt")) {
-			// file_put_contents("C:/vumc/log.txt", "constructing Fast_Records_Table instance\n");
-		// }
-	// }
+	function getFieldArray() {
+		$settings = $this->getProjectSettings();
+		$datacols = $settings['data-columns'];
+		if (count($datacols) == 1 and empty($datacols[0]))
+			$datacols = [];
+		
+		$field_array = [\REDCap::getRecordIdField()];
+		foreach($datacols as $i => $field_name) {
+			$field_array[] = $field_name;
+		}
+		return $field_array;
+	}
 	
-	// function llog($text) {
-		// if (file_exists("C:/vumc/log.txt")) {
-			// file_put_contents("C:/vumc/log.txt", "$text\n", FILE_APPEND);
-		// }
-	// }
+	function nlog() {
+		if (file_exists("C:/vumc/log.txt")) {
+			file_put_contents("C:/vumc/log.txt", "constructing Fast_Records_Table instance\n");
+		}
+	}
+	
+	function llog($text) {
+		if (file_exists("C:/vumc/log.txt")) {
+			file_put_contents("C:/vumc/log.txt", "$text\n", FILE_APPEND);
+		}
+	}
 	
 }
