@@ -45,8 +45,8 @@
 	"crons": [],
 	"compatibility": {
 		"php-version-min": "7.0.0",
-		"php-version-max": "7.3.1",
+		"php-version-max": "",
 		"redcap-version-min": "8.0.0",
-		"redcap-version-max": "10.2.1"
+		"redcap-version-max": ""
 	}
 }
