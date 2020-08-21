@@ -7,7 +7,5 @@ $(document).ready(
 				{className: 'dt-center', targets: '_all'}
 			]
 		});
-		
-		FRTable.datatable.adjust().draw();
 	}
 );

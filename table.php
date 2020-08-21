@@ -1,6 +1,7 @@
 
 <?php
 require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
+$cols = $module->getColumns();
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
@@ -15,11 +16,14 @@ require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 <table id="records" class="display compact nowrap">
     <thead>
         <tr>
-            <th>Record ID</th>
-			<th>First Name</th>
-            <th>Last Name</th>
-            <th>Form 1</th>
-            <th>Form 2</th>
+			<?php
+			foreach($cols->data_columns as $display => $actual) {
+				echo "<th>$display</th>\n";
+			}
+			foreach($cols->form_columns as $display => $actual) {
+				echo "<th>$display</th>\n";
+			}
+			?>
         </tr>
     </thead>
     <tbody>

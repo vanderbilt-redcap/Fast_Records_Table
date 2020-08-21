@@ -27,7 +27,20 @@
 		"control-center": []
 	},
 	"no-auth-pages": [],
-	"project-settings": [],
+	"project-settings": [
+		{
+			"key": "data-columns",
+			"name": "Data Columns",
+			"type": "field-list",
+			"repeatable": "true"
+		},
+		{
+			"key": "form-columns",
+			"name": "Form Columns",
+			"type": "form-list",
+			"repeatable": "true"
+		}
+	],
 	"system-settings": [],
 	"crons": [],
 	"compatibility": {
