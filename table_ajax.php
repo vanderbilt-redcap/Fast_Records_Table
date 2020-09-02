@@ -4,12 +4,19 @@ $project = new \Project($pid);
 $eid = $project->firstEventId;
 $cols = $module->getColumns();
 
-$link_base = str_replace("/redcap/", APP_PATH_WEBROOT, APP_PATH_WEBROOT_FULL);
+// determine record home page link address
+if (strpos(APP_PATH_WEBROOT_FULL, "/redcap/") !== false) {	// dev
+	$link_base = str_replace("/redcap/", APP_PATH_WEBROOT, APP_PATH_WEBROOT_FULL);
+} else {	// test/prod
+	$link_base = substr(APP_PATH_WEBROOT_FULL, 0, -1) . APP_PATH_WEBROOT;
+}
+
 $record_link = $link_base . "DataEntry/record_home.php?pid=$pid&arm=1&id=";
 $form_links = [];
 foreach($cols->form_columns as $display => $form) {
 	$form_links[$form] = $link_base . "DataEntry/index.php?pid=$pid&page=$form&id=";
 }
+
 
 $field_array = $module->getFieldArray();
 $module->llog('field array: ' . print_r($field_array, true));
